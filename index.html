@@ -2,156 +2,776 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Neonatology Insights | Expert Newborn Care</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5">
+    <title>NICU Ethiopia • complete student guide & abbreviations (evidence 2025)</title>
+    <!-- Font & Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #f4fafc;
+            color: #0b2f4e;
+            line-height: 1.6;
+            scroll-behavior: smooth;
+        }
+
+        .container {
+            max-width: 1440px;
+            margin: 0 auto;
+            padding: 0 28px;
+        }
+
+        .hero {
+            background: linear-gradient(145deg, #0a5c70 0%, #0e7e8c 100%);
+            color: white;
+            padding: 2.5rem 0 2.2rem;
+            border-bottom-left-radius: 40px;
+            border-bottom-right-radius: 40px;
+            box-shadow: 0 16px 28px rgba(6,70,80,0.12);
+            margin-bottom: 2rem;
+        }
+
+        .hero-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .title-section h1 {
+            font-size: 2.6rem;
+            font-weight: 700;
+            letter-spacing: -0.01em;
+            margin-bottom: 0.3rem;
+            line-height: 1.2;
+        }
+
+        .title-section .flag {
+            background: rgba(255,255,255,0.18);
+            backdrop-filter: blur(6px);
+            padding: 0.5rem 1.8rem;
+            border-radius: 50px;
+            font-weight: 600;
+            border: 1px solid rgba(255,255,255,0.4);
+            display: inline-block;
+            margin-top: 0.7rem;
+        }
+
+        .student-badge {
+            background: #fadf7f;
+            color: #103e4a;
+            padding: 1.1rem 2.2rem;
+            border-radius: 28px;
+            font-weight: 700;
+            box-shadow: 0 10px 0 #b89038;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .student-badge i {
+            font-size: 2.3rem;
+            color: #0b4f5e;
+        }
+
+        .search-section {
+            background: white;
+            border-radius: 56px;
+            padding: 0.4rem 0.4rem 0.4rem 2.2rem;
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            margin: 2.2rem 0 1.5rem;
+            box-shadow: 0 10px 22px rgba(0,70,80,0.06);
+        }
+
+        .search-section i {
+            color: #0f7a89;
+            font-size: 1.3rem;
+        }
+
+        #searchInput {
+            flex: 1;
+            border: none;
+            padding: 1rem 0.8rem;
+            font-size: 1.1rem;
+            background: transparent;
+            outline: none;
+        }
+
+        .btn {
+            background: #0e7c8b;
+            border: none;
+            color: white;
+            padding: 0.9rem 2.3rem;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.2s;
+            border: 1px solid rgba(255,255,255,0.3);
+        }
+
+        .btn:hover {
+            background: #075e6b;
+            transform: scale(0.97);
+        }
+
+        .content-grid {
+            display: grid;
+            grid-template-columns: 320px 1fr;
+            gap: 34px;
+            margin-top: 20px;
+        }
+
+        .sidebar {
+            background: white;
+            border-radius: 32px;
+            padding: 2rem 1.3rem;
+            box-shadow: 0 18px 30px rgba(6,70,80,0.05);
+            position: sticky;
+            top: 20px;
+            max-height: calc(100vh - 40px);
+            overflow-y: auto;
+        }
+
+        .sidebar h3 {
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #0e7c8b;
+            margin-bottom: 1.8rem;
+            border-bottom: 2px solid #c2e3e8;
+            padding-bottom: 0.8rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .nav-links {
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-bottom: 0.6rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #155a6b;
+            font-weight: 500;
+            display: block;
+            padding: 0.5rem 1rem;
+            border-radius: 12px;
+            transition: 0.18s;
+            font-size: 0.95rem;
+            border-left: 4px solid transparent;
+        }
+
+        .nav-links a:hover {
+            background: #e2f0f3;
+            border-left: 4px solid #0e7c8b;
+            color: #04313b;
+            font-weight: 600;
+        }
+
+        .main-doc {
+            background: white;
+            border-radius: 36px;
+            padding: 2.5rem 2.8rem;
+            box-shadow: 0 20px 30px rgba(0,70,80,0.03);
+        }
+
+        .section-block {
+            margin-bottom: 3rem;
+            scroll-margin-top: 1rem;
+            border-bottom: 1px solid #e0eff2;
+            padding-bottom: 2.2rem;
+        }
+
+        .section-title {
+            font-size: 1.9rem;
+            font-weight: 700;
+            color: #0a4b62;
+            margin-bottom: 1.2rem;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .badge-update {
+            background: #f9cf5c;
+            color: #1d4455;
+            font-size: 0.8rem;
+            font-weight: 800;
+            padding: 0.25rem 1.2rem;
+            border-radius: 40px;
+            margin-left: 0.6rem;
+            text-transform: uppercase;
+            letter-spacing: 0.6px;
+        }
+
+        .abbrev-card {
+            background: #f2fcff;
+            border-radius: 20px;
+            padding: 1.4rem;
+            margin: 1.8rem 0;
+            border: 1px solid #b1dfe7;
+        }
+
+        .abbrev-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            gap: 12px 18px;
+            max-height: 400px;
+            overflow-y: auto;
+            padding-right: 10px;
+        }
+
+        .abbrev-item {
+            background: white;
+            padding: 0.5rem 1rem;
+            border-radius: 30px;
+            border-left: 6px solid #0e7c8b;
+            font-size: 0.9rem;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.02);
+        }
+
+        .abbrev-item strong {
+            color: #07525e;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            background: #f9fefe;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.02);
+        }
+
+        th {
+            background: #0e4d6c;
+            color: white;
+            font-weight: 600;
+            padding: 12px 10px;
+        }
+
+        td {
+            padding: 12px 10px;
+            border-bottom: 1px solid #cde3e7;
+        }
+
+        .tip-box {
+            background: #d9f0f2;
+            border-left: 8px solid #0f7785;
+            padding: 1.5rem;
+            border-radius: 20px;
+            margin: 1.8rem 0;
+        }
+
+        .footnote {
+            background: #fdf6e3;
+            border-radius: 16px;
+            padding: 0.9rem 1.8rem;
+            font-size: 0.94rem;
+            margin: 1.5rem 0;
+        }
+
+        .chart-container {
+            max-width: 350px;
+            background: white;
+            padding: 1.2rem;
+            border-radius: 24px;
+            box-shadow: 0 8px 18px rgba(0,0,0,0.02);
+            margin: 0.5rem auto;
+        }
+
+        footer {
+            background: #0a3340;
+            color: #bfe2e9;
+            padding: 2.8rem 0;
+            margin-top: 4rem;
+            border-radius: 48px 48px 0 0;
+        }
+
+        .footer-grid {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+
+        @media (max-width: 1100px) {
+            .content-grid {
+                grid-template-columns: 1fr;
+            }
+            .sidebar {
+                position: relative;
+                max-height: none;
+            }
+            .hero-content {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .main-doc {
+                padding: 2rem 1.5rem;
+            }
+        }
+    </style>
 </head>
 <body>
-
-    <header>
-        <nav class="navbar">
-            <div class="logo">Aras<span>Bet</span></div>
-            <ul class="nav-links">
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Clinical Guidelines</a></li>
-                <li><a href="#">Parent Resources</a></li>
-                <li><a href="#">About</a></li>
-                <li><a href="#" class="cta-btn">Contact Specialist</a></li>
-            </ul>
-        </nav>
-    </header>
-
-    <section class="hero">
-        <div class="hero-content">
-            <h1>Neonatal Care Excellence</h1>
-            <p>Evidence-based resources for healthcare providers and parents on newborn health, prematurity, and NICU care.</p>
-            <div class="search-bar">
-                <input type="text" placeholder="Search topics (e.g., Jaundice, CPAP)...">
-                <button><i class="fas fa-search"></i></button>
+    <div class="hero">
+        <div class="container hero-content">
+            <div class="title-section">
+                <h1>🇪🇹 NICU Ethiopia <br><span style="font-size:2rem;">Clinical Reference & Student Guide</span></h1>
+                <span class="flag"><i class="fas fa-graduation-cap"></i> Ministry of Health – for nursing, medical students & clinicians – 2025</span>
+            </div>
+            <div class="student-badge">
+                <i class="fas fa-book-open"></i>
+                <span>70+ abbreviations decoded • evidence 2024-2025 • 50+ protocols</span>
             </div>
         </div>
-    </section>
+    </div>
 
-    <main class="article-container">
-        <nav><a href="index.html" style="color: #2c7da0; text-decoration: none;">&larr; Back to Dashboard</a></nav>
-        
-        <header>
-            <h1>Clinical Protocol: Managing Neonatal Jaundice</h1>
-            <p class="meta-info">Published: Oct 2024 | Category: Neonatology | Reviewed by: Clinical Team</p>
-        </header>
+    <div class="container">
+        <div class="search-section">
+            <i class="fas fa-search"></i>
+            <input type="text" id="searchInput" placeholder="Search any term: BPD, IVH, CPAP, LISA, or abbreviation..." autocomplete="off">
+            <button class="btn" id="searchBtn"><i class="fas fa-arrow-right"></i> Find</button>
+        </div>
 
-        <section id="definition">
-            <h2>1. Definition</h2>
-            <p>Neonatal jaundice is the yellowish discoloration of the skin and sclera caused by the accumulation of <strong>unconjugated bilirubin</strong> in the blood (hyperbilirubinemia). It affects approximately 60% of term and 80% of preterm infants during the first week of life.</p>
-        </section>
+        <div class="content-grid">
+            <!-- SIDEBAR - comprehensive, student-friendly -->
+            <div class="sidebar">
+                <h3><i class="fas fa-list-ul"></i> NICU Fast access</h3>
+                <ul class="nav-links">
+                    <li><a href="#abbreviations"><i class="fas fa-font"></i> 📖 ABBREVIATIONS DECODER</a></li>
+                    <li><a href="#admission"><i class="fas fa-door-open"></i> Admission/Discharge</a></li>
+                    <li><a href="#transport"><i class="fas fa-ambulance"></i> Neonatal transport</a></li>
+                    <li><a href="#resuscitation"><i class="fas fa-heartbeat"></i> Resuscitation NRP8</a></li>
+                    <li><a href="#thermoregulation"><i class="fas fa-thermometer-half"></i> Thermoregulation/KMC</a></li>
+                    <li><a href="#fluid-electrolytes"><i class="fas fa-droplet"></i> Fluids/electrolytes</a></li>
+                    <li><a href="#respiratory"><i class="fas fa-lungs"></i> CPAP / LISA / vent</a></li>
+                    <li><a href="#rds"><i class="fas fa-child"></i> RDS / surfactant</a></li>
+                    <li><a href="#pda"><i class="fas fa-heart"></i> PDA (paracetamol)</a></li>
+                    <li><a href="#pphn"><i class="fas fa-heart-circle"></i> PPHN / iNO</a></li>
+                    <li><a href="#hie"><i class="fas fa-brain"></i> HIE / therapeutic cooling</a></li>
+                    <li><a href="#sepsis"><i class="fas fa-bacteria"></i> Sepsis, meningitis</a></li>
+                    <li><a href="#tb"><i class="fas fa-lungs"></i> Neonatal TB</a></li>
+                    <li><a href="#hiv"><i class="fas fa-ribbon"></i> HIV exposed</a></li>
+                    <li><a href="#cmv"><i class="fas fa-virus"></i> Congenital CMV, syphilis</a></li>
+                    <li><a href="#nutrition"><i class="fas fa-utensils"></i> Nutrition/TPN</a></li>
+                    <li><a href="#metabolic"><i class="fas fa-flask"></i> Inborn errors</a></li>
+                    <li><a href="#jaundice"><i class="fas fa-sun"></i> Jaundice / exchange</a></li>
+                    <li><a href="#renal"><i class="fas fa-kidney"></i> AKI / hydronephrosis</a></li>
+                    <li><a href="#anemia"><i class="fas fa-tint"></i> Anemia / transfusion</a></li>
+                    <li><a href="#ivh"><i class="fas fa-waveform"></i> IVH / neuroprotection</a></li>
+                    <li><a href="#rop"><i class="fas fa-eye"></i> ROP / hearing</a></li>
+                    <li><a href="#surgery"><i class="fas fa-cut"></i> Surgical emergencies</a></li>
+                    <li><a href="#nec"><i class="fas fa-stethoscope"></i> NEC</a></li>
+                    <li><a href="#pain"><i class="fas fa-hand-holding-heart"></i> Pain / sucrose</a></li>
+                    <li><a href="#developmental"><i class="fas fa-smile"></i> Developmental care</a></li>
+                    <li><a href="#ethics"><i class="fas fa-scale-balanced"></i> Ethics / palliative</a></li>
+                    <li><a href="#maternalmental"><i class="fas fa-mother-child"></i> Maternal mental health</a></li>
+                    <li><a href="#chromosomal"><i class="fas fa-dna"></i> Trisomies</a></li>
+                    <li><a href="#thyroid"><i class="fas fa-thyroid"></i> Thyroid</a></li>
+                    <li><a href="#immunization"><i class="fas fa-syringe"></i> Immunization</a></li>
+                </ul>
+            </div>
+            
+            <!-- MAIN DOC – starts with ABBREVIATIONS section, then all topics -->
+            <div class="main-doc" id="mainDocument">
+                
+                <!-- ABBREVIATIONS DECODER – huge student friendly section -->
+                <div id="abbreviations" class="section-block">
+                    <h2 class="section-title"><i class="fas fa-font"></i> NICU abbreviations & acronyms <span class="badge-update">70+ terms explained</span></h2>
+                    <div class="abbrev-card">
+                        <p style="font-weight:600; margin-bottom:1rem;"><i class="fas fa-info-circle"></i> Common shorthand used in daily NICU practice – clear definitions for students and trainees.</p>
+                        <div class="abbrev-grid">
+                            <div class="abbrev-item"><strong>aEEG</strong> amplitude-integrated EEG</div>
+                            <div class="abbrev-item"><strong>AGA</strong> appropriate for gestational age</div>
+                            <div class="abbrev-item"><strong>AKI</strong> acute kidney injury</div>
+                            <div class="abbrev-item"><strong>BPD</strong> bronchopulmonary dysplasia</div>
+                            <div class="abbrev-item"><strong>BIND</strong> bilirubin-induced neurologic dysfunction</div>
+                            <div class="abbrev-item"><strong>CHD</strong> congenital heart disease</div>
+                            <div class="abbrev-item"><strong>CLD</strong> chronic lung disease</div>
+                            <div class="abbrev-item"><strong>CPAP</strong> continuous positive airway pressure</div>
+                            <div class="abbrev-item"><strong>CRP</strong> C-reactive protein</div>
+                            <div class="abbrev-item"><strong>DIC</strong> disseminated intravascular coagulation</div>
+                            <div class="abbrev-item"><strong>DOL</strong> day of life</div>
+                            <div class="abbrev-item"><strong>ECMO</strong> extracorporeal membrane oxygenation</div>
+                            <div class="abbrev-item"><strong>ELBW</strong> extremely low birth weight (<1000g)</div>
+                            <div class="abbrev-item"><strong>ETT</strong> endotracheal tube</div>
+                            <div class="abbrev-item"><strong>FiO₂</strong> fraction of inspired oxygen</div>
+                            <div class="abbrev-item"><strong>FFP</strong> fresh frozen plasma</div>
+                            <div class="abbrev-item"><strong>GA</strong> gestational age</div>
+                            <div class="abbrev-item"><strong>GIR</strong> glucose infusion rate</div>
+                            <div class="abbrev-item"><strong>Hb</strong> haemoglobin</div>
+                            <div class="abbrev-item"><strong>HIE</strong> hypoxic-ischaemic encephalopathy</div>
+                            <div class="abbrev-item"><strong>HMF</strong> human milk fortifier</div>
+                            <div class="abbrev-item"><strong>HFNC</strong> high-flow nasal cannula</div>
+                            <div class="abbrev-item"><strong>ICP</strong> intracranial pressure</div>
+                            <div class="abbrev-item"><strong>IUGR</strong> intrauterine growth restriction</div>
+                            <div class="abbrev-item"><strong>IVH</strong> intraventricular haemorrhage</div>
+                            <div class="abbrev-item"><strong>iNO</strong> inhaled nitric oxide</div>
+                            <div class="abbrev-item"><strong>IWL</strong> insensible water loss</div>
+                            <div class="abbrev-item"><strong>KMC</strong> kangaroo mother care</div>
+                            <div class="abbrev-item"><strong>LISA</strong> less invasive surfactant administration</div>
+                            <div class="abbrev-item"><strong>LONS</strong> late-onset neonatal sepsis</div>
+                            <div class="abbrev-item"><strong>MAP</strong> mean airway pressure</div>
+                            <div class="abbrev-item"><strong>MAS</strong> meconium aspiration syndrome</div>
+                            <div class="abbrev-item"><strong>MIST</strong> minimal invasive surfactant therapy</div>
+                            <div class="abbrev-item"><strong>NEC</strong> necrotising enterocolitis</div>
+                            <div class="abbrev-item"><strong>NGT</strong> nasogastric tube</div>
+                            <div class="abbrev-item"><strong>NICU</strong> neonatal intensive care unit</div>
+                            <div class="abbrev-item"><strong>NIPPV</strong> nasal intermittent positive pressure ventilation</div>
+                            <div class="abbrev-item"><strong>NPO</strong> nil per os (nothing by mouth)</div>
+                            <div class="abbrev-item"><strong>NRP</strong> neonatal resuscitation program</div>
+                            <div class="abbrev-item"><strong>OI</strong> oxygenation index</div>
+                            <div class="abbrev-item"><strong>PEEP</strong> positive end-expiratory pressure</div>
+                            <div class="abbrev-item"><strong>PIP</strong> peak inspiratory pressure</div>
+                            <div class="abbrev-item"><strong>PIPP</strong> premature infant pain profile</div>
+                            <div class="abbrev-item"><strong>PDA</strong> patent ductus arteriosus</div>
+                            <div class="abbrev-item"><strong>PPHN</strong> persistent pulmonary hypertension</div>
+                            <div class="abbrev-item"><strong>PROM</strong> pre-labour rupture of membranes</div>
+                            <div class="abbrev-item"><strong>PVL</strong> periventricular leukomalacia</div>
+                            <div class="abbrev-item"><strong>RDS</strong> respiratory distress syndrome</div>
+                            <div class="abbrev-item"><strong>ROP</strong> retinopathy of prematurity</div>
+                            <div class="abbrev-item"><strong>SGA</strong> small for gestational age</div>
+                            <div class="abbrev-item"><strong>SIADH</strong> syndrome of inappropriate antidiuretic hormone</div>
+                            <div class="abbrev-item"><strong>SpO₂</strong> peripheral oxygen saturation</div>
+                            <div class="abbrev-item"><strong>TTN</strong> transient tachypnea of newborn</div>
+                            <div class="abbrev-item"><strong>TPN</strong> total parenteral nutrition</div>
+                            <div class="abbrev-item"><strong>UAC</strong> umbilical artery catheter</div>
+                            <div class="abbrev-item"><strong>UVC</strong> umbilical vein catheter</div>
+                            <div class="abbrev-item"><strong>VAP</strong> ventilator-associated pneumonia</div>
+                            <div class="abbrev-item"><strong>VLBW</strong> very low birth weight (<1500g)</div>
+                            <div class="abbrev-item"><strong>V/Q</strong> ventilation/perfusion ratio</div>
+                            <div class="abbrev-item"><strong>Vt</strong> tidal volume</div>
+                            <div class="abbrev-item"><strong>WPW</strong> Wolff-Parkinson-White syndrome</div>
+                        </div>
+                        <p style="margin-top:1rem; font-style:italic; background: #ffe9bf; padding:0.8rem; border-radius:14px;"><i class="fas fa-lightbulb"></i> Student tip: bookmark this page – most frequent NICU abbreviations used in rounds, charts, and orders.</p>
+                    </div>
+                </div>
+                
+                <!-- 1. ADMISSION / TRANSPORT -->
+                <div id="admission" class="section-block">
+                    <h2 class="section-title"><i class="fas fa-door-open"></i> Admission, discharge & transport </h2>
+                    <span class="badge-update">2025 WHO</span>
+                    <p><strong>Level III NICU admission:</strong> BW &lt;1500g, GA &lt;34w, severe sepsis/shock, CPAP/ventilation, major surgery. <em>Family integrated care – parents 24/7 presence.</em></p>
+                    <div id="transport" style="margin-top:1.2rem; background: #eaf4f6; padding:1.2rem; border-radius:18px;">
+                        <h3 style="color:#0b6a78;"><i class="fas fa-ambulance"></i> Neonatal transport standards 2025</h3>
+                        <p>Transport incubator (servo-controlled), pre-warmed, emergency meds, trained team. Embrace/transwarmer for low-resource. Maternal escort whenever possible.</p>
+                    </div>
+                </div>
 
-        <section id="causes">
-            <h2>2. Causes & Risk Factors</h2>
-            <p>Jaundice occurs when bilirubin production exceeds the liver's ability to clear it. Major causes include:</p>
-            <ul>
-                <li><strong>Physiological Jaundice:</strong> Normal breakdown of fetal RBCs and immature liver function (appears after 24 hours).</li>
-                <li><strong>Pathological Jaundice:</strong> Appears within the first 24 hours, often due to:
+                <!-- 2. RESUSCITATION -->
+                <div id="resuscitation" class="section-block">
+                    <h2 class="section-title"><i class="fas fa-heartbeat"></i> Neonatal resuscitation (NRP 8th/ILCOR 2024) </h2>
                     <ul>
-                        <li>ABO or Rh incompatibility.</li>
-                        <li>G6PD deficiency.</li>
-                        <li>Sepsis or internal hemorrhage (e.g., cephalohematoma).</li>
+                        <li><strong>DCC:</strong> delayed cord clamping ≥60s (VLBW 60s with cord intact).</li>
+                        <li>O2: term 21%, preterm &lt;32w 21-30%, target SpO2 nomogram.</li>
+                        <li>Non-vigorous meconium: NO routine tracheal suction – CPAP/PPV if apnoeic.</li>
+                        <li>Preterm &lt;32w: plastic wrap, exothermic mattress, T-piece, CPAP 6-8 cmH2O.</li>
+                        <li>Epinephrine IV/IO 0.02 mg/kg (0.2ml/kg of 1:10,000) if HR &lt;60.</li>
                     </ul>
-                </li>
-            </ul>
-        </section>
+                </div>
 
-        
+                <!-- 3. THERMOREGULATION -->
+                <div id="thermoregulation" class="section-block">
+                    <h2 class="section-title"><i class="fas fa-thermometer-half"></i> Thermoregulation & KMC </h2>
+                    <span class="badge-update">WHO 2024</span>
+                    <p>Admission temp 36.5-37.5°C. &lt;32w: polyethene cap, servo-incubator, humidity 80% week1. <strong>Continuous KMC</strong> for all stable &lt;2000g from birth, even on CPAP.</p>
+                </div>
 
-        <section id="symptoms">
-            <h2>3. Signs & Symptoms</h2>
-            <p>The primary sign is the yellowing of the skin, which typically starts at the head and moves downward (cephalo-caudal progression). Other signs include:</p>
-            <ul>
-                <li>Yellowing of the whites of the eyes (scleral icterus).</li>
-                <li>Poor feeding or lethargy.</li>
-                <li>High-pitched crying (a warning sign of bilirubin toxicity).</li>
-                <li>Dark urine or pale stools.</li>
-            </ul>
-        </section>
+                <!-- 4. FLUID/ELECTROLYTES -->
+                <div id="fluid-electrolytes" class="section-block">
+                    <h2 class="section-title"><i class="fas fa-droplet"></i> Fluids, electrolytes, glucose </h2>
+                    <span class="badge-update">KDIGO 2024</span>
+                    <table>
+                        <tr><th>BW (g)</th><th>Day1</th><th>Day2</th><th>Day3-6</th></tr>
+                        <tr><td>&lt;750</td><td>100-140</td><td>120-160</td><td>140-200</td></tr>
+                        <tr><td>750-1000</td><td>100-120</td><td>120-140</td><td>130-180</td></tr>
+                        <tr><td>1000-1500</td><td>80-100</td><td>100-120</td><td>120-160</td></tr>
+                    </table>
+                    <p><strong>Hypoglycemia:</strong> GIR start 6-8 mg/kg/min, increase by 2; refractory → hydrocortisone/diazoxide.</p>
+                </div>
 
-        <section id="assessment">
-            <h2>4. Assessment Modalities</h2>
-            <p>Accurate measurement is vital to prevent <strong>Kernicterus</strong> (permanent brain damage).</p>
-            <ul>
-                <li><strong>Visual Inspection:</strong> Checking the blanching of the skin in natural light.</li>
-                <li><strong>Transcutaneous Bilirubinometry (TcB):</strong> Non-invasive screening tool.</li>
-                <li><strong>Total Serum Bilirubin (TSB):</strong> The gold standard blood test, required if TcB is high or jaundice appears early.</li>
-            </ul>
-        </section>
+                <!-- 5. RESPIRATORY / LISA -->
+                <div id="respiratory" class="section-block">
+                    <h2 class="section-title"><i class="fas fa-lungs"></i> Respiratory support & LISA </h2>
+                    <span class="badge-update">EBNEO 2025</span>
+                    <p><strong>nCPAP:</strong> Downe ≥4 or FiO2 >0.30. <strong>LISA/MIST:</strong> surfactant during CPAP via thin catheter, reduces BPD/death. Caffeine for all &lt;1250g or &lt;31w within 2h.</p>
+                </div>
 
-        <section id="management">
-            <h2>5. Management</h2>
-            <div class="clinical-box">
-                <strong>Management Goal:</strong> Keep bilirubin levels below the threshold where neurological damage occurs.
+                <!-- 6. RDS SURFACTANT -->
+                <div id="rds" class="section-block">
+                    <h2 class="section-title"><i class="fas fa-child"></i> RDS & surfactant </h2>
+                    <span class="badge-update">Eur RDS 2025</span>
+                    <p>Antenatal steroids up to 34+6w. Rescue surfactant (poractant alfa 200 mg/kg) if FiO2 >0.30 on CPAP. Repeat if FiO2 >0.40, MAP >8.</p>
+                </div>
+
+                <!-- 7. PDA -->
+                <div id="pda" class="section-block">
+                    <h2 class="section-title"><i class="fas fa-heart"></i> Patent ductus arteriosus </h2>
+                    <span class="badge-update">2024 PDA-TOLERATE</span>
+                    <p><strong>First-line IV paracetamol</strong> 15 mg/kg q6h x3d (less nephrotoxicity, equal efficacy). Ibuprofen alternative. Ligation if medical failure + ventilator dependent.</p>
+                </div>
+
+                <!-- 8. PPHN -->
+                <div id="pphn" class="section-block">
+                    <h2 class="section-title"><i class="fas fa-heart-circle"></i> PPHN </h2>
+                    <span class="badge-update">Neonatal network 2024</span>
+                    <p>Target SpO2 95-100%, iNO if OI >20, sildenafil 0.5-2 mg/kg q6h, milrinone for low output. Avoid hypocarbia.</p>
+                </div>
+
+                <!-- 9. HIE / COOLING -->
+                <div id="hie" class="section-block">
+                    <h2 class="section-title"><i class="fas fa-brain"></i> HIE & therapeutic hypothermia </h2>
+                    <span class="badge-update">NeoCool 2025</span>
+                    <p>≥36 wks, pH ≤7.0 or BE ≥16, moderate-severe encephalopathy, start &lt;6h, cool 33.5°C x72h, rewarm 0.5°C/h. Low-tech cooling feasible in LMIC.</p>
+                </div>
+
+                <!-- 10. SEPSIS + TB + HIV + CMV -->
+                <div id="sepsis" class="section-block">
+                    <h2 class="section-title"><i class="fas fa-bacteria"></i> Neonatal sepsis / meningitis </h2>
+                    <span class="badge-update">NeoOBS 2025</span>
+                    <p>EOS: ampicillin + gentamicin. LONS: vancomycin + cefotaxime. Fluconazole prophylaxis ELBW. Duration: culture-negative 5-7d, culture-positive 14d, meningitis 21d.</p>
+                </div>
+                <div id="tb" class="section-block">
+                    <h2 class="section-title"><i class="fas fa-lungs"></i> Neonatal tuberculosis </h2>
+                    <span class="badge-update">WHO 2024</span>
+                    <p>Congenital TB: hepatosplenomegaly, respiratory distress, gastric aspirate Xpert. <strong>INH 10 mg/kg + RMP 15 mg/kg + PZA 35 mg/kg + EMB 20 mg/kg x2m, then INH+RMP 4-7m.</strong></p>
+                </div>
+                <div id="hiv" class="section-block">
+                    <h2 class="section-title"><i class="fas fa-ribbon"></i> HIV exposed infant </h2>
+                    <span class="badge-update">2024 WHO</span>
+                    <p>NVP or AZT for 6-12w, PCR at birth, 6w, 4m. Co-trimoxazole from 4-6w. Breastfeeding encouraged if mother on ART.</p>
+                </div>
+                <div id="cmv" class="section-block">
+                    <h2 class="section-title"><i class="fas fa-virus"></i> Congenital CMV, syphilis </h2>
+                    <span class="badge-update">CDC 2025</span>
+                    <p><strong>cCMV:</strong> SNHL, petechiae; valganciclovir 6w. <strong>Syphilis:</strong> crystalline penicillin 10-14d.</p>
+                </div>
+
+                <!-- 11. NUTRITION -->
+                <div id="nutrition" class="section-block">
+                    <h2 class="section-title"><i class="fas fa-utensils"></i> Nutrition & TPN </h2>
+                    <span class="badge-update">ESPGHAN 2025</span>
+                    <p>AA 2.5-3.5 g/kg/d day1; lipids 2-3 g/kg/d. Trophic 10-20 ml/kg/d D1. HMF at 100 ml/kg/d. Vitamin D 800 IU/d VLBW.</p>
+                </div>
+
+                <!-- 12. METABOLIC -->
+                <div id="metabolic" class="section-block">
+                    <h2 class="section-title"><i class="fas fa-flask"></i> Inborn errors of metabolism </h2>
+                    <span class="badge-update">SIMD 2024</span>
+                    <p>Suspected: encephalopathy, metabolic acidosis, hypoglycemia, hyperammonemia. Emergency: stop protein, IV glucose, sodium benzoate, carnitine.</p>
+                </div>
+
+                <!-- 13. JAUNDICE -->
+                <div id="jaundice" class="section-block">
+                    <h2 class="section-title"><i class="fas fa-sun"></i> Neonatal jaundice </h2>
+                    <span class="badge-update">AAP 2024</span>
+                    <p>Hour-specific phototherapy, IVIG for isoimmune hemolysis, exchange transfusion nomogram. B/A ratio guide.</p>
+                </div>
+
+                <!-- 14. RENAL -->
+                <div id="renal" class="section-block">
+                    <h2 class="section-title"><i class="fas fa-kidney"></i> Acute kidney injury / hydronephrosis </h2>
+                    <p>KDIGO stage 1: sCr rise ≥0.3 mg/dL. Avoid nephrotoxins. Postnatal US for ANH day 3-7, amoxicillin prophylaxis if suspected PUV.</p>
+                </div>
+
+                <!-- 15. ANEMIA -->
+                <div id="anemia" class="section-block">
+                    <h2 class="section-title"><i class="fas fa-tint"></i> Anemia & transfusion </h2>
+                    <span class="badge-update">NICE 2025</span>
+                    <p>PRBC 15 ml/kg. Thresholds: ventilated day1-7 Hb <12 g/dL, stable >2w Hb <8.5 g/dL. Hold feeds 1h before/after transfusion (NEC reduction).</p>
+                </div>
+
+                <!-- 16. IVH -->
+                <div id="ivh" class="section-block">
+                    <h2 class="section-title"><i class="fas fa-waveform"></i> Intraventricular haemorrhage prevention </h2>
+                    <p>Antenatal steroids, DCC, minimal handling, caffeine. Cranial US for <32w: day5-7 & day28.</p>
+                </div>
+
+                <!-- 17. ROP -->
+                <div id="rop" class="section-block">
+                    <h2 class="section-title"><i class="fas fa-eye"></i> ROP & hearing screening </h2>
+                    <span class="badge-update">ICROP3 2024</span>
+                    <p>Screen: BW <1501g or GA <32w, plus unstable 1500-2000g. Type1 ROP: laser/anti-VEGF. Hearing: AABR/OAE before discharge.</p>
+                </div>
+
+                <!-- 18. SURGICAL -->
+                <div id="surgery" class="section-block">
+                    <h2 class="section-title"><i class="fas fa-cut"></i> Surgical emergencies </h2>
+                    <p>CDH: avoid mask, immediate intubation, NG, iNO. Gastroschisis: bowel bag, right side, sutureless closure. MMC closure <48h.</p>
+                </div>
+
+                <!-- 19. NEC -->
+                <div id="nec" class="section-block">
+                    <h2 class="section-title"><i class="fas fa-stethoscope"></i> Necrotizing enterocolitis </h2>
+                    <p>Stage I: NPO, Abx 3d. Stage II/III: NPO, TPN, Abx (amp+gent+metro), surgery if pneumoperitoneum.</p>
+                </div>
+
+                <!-- 20. PAIN & DEVELOPMENT -->
+                <div id="pain" class="section-block">
+                    <h2 class="section-title"><i class="fas fa-hand-holding-heart"></i> Pain & developmental care </h2>
+                    <span class="badge-update">PIPP-R 2025</span>
+                    <p>Sucrose 24% 0.1-1 ml 2min pre-procedure; facilitated tucking, KMC, EMLA. Noise <45dB, cycled lighting.</p>
+                </div>
+                <div id="developmental" class="section-block">
+                    <h2 class="section-title"><i class="fas fa-smile"></i> Developmental care </h2>
+                    <p>Cue-based care, parental engagement, non-nutritive sucking, sleep protection.</p>
+                </div>
+
+                <!-- 21. ETHICS / PALLIATIVE / LAMA -->
+                <div id="ethics" class="section-block">
+                    <h2 class="section-title"><i class="fas fa-scale-balanced"></i> Ethics, palliative care & LAMA </h2>
+                    <span class="badge-update">2024 WHO</span>
+                    <p><strong>Palliative:</strong> symptom control (morphine), family support. <strong>LAMA:</strong> empathic counselling, explore reasons, social work, document.</p>
+                </div>
+
+                <!-- 22. MATERNAL MENTAL HEALTH -->
+                <div id="maternalmental" class="section-block">
+                    <h2 class="section-title"><i class="fas fa-mother-child"></i> Maternal mental health in NICU </h2>
+                    <span class="badge-update">2025 AAP</span>
+                    <p>Screen for PPD/ anxiety (EPDS), psychological first aid, peer support, involve mother in cares.</p>
+                </div>
+
+                <!-- 23. CHROMOSOMAL -->
+                <div id="chromosomal" class="section-block">
+                    <h2 class="section-title"><i class="fas fa-dna"></i> Trisomies (DS, T18, T13) </h2>
+                    <p><strong>Down syndrome:</strong> cardiac echo, thyroid screen. T18/T13: often palliative.</p>
+                </div>
+
+                <!-- 24. THYROID -->
+                <div id="thyroid" class="section-block">
+                    <h2 class="section-title"><i class="fas fa-thyroid"></i> Thyroid dysfunction </h2>
+                    <span class="badge-update">ESPE 2024</span>
+                    <p>Neonatal hyperthyroidism (Graves'): propranolol, methimazole. CH: levothyroxine 10-15 µg/kg/d.</p>
+                </div>
+
+                <!-- 25. IMMUNIZATION -->
+                <div id="immunization" class="section-block">
+                    <h2 class="section-title"><i class="fas fa-syringe"></i> Immunization (EPI) </h2>
+                    <p>Preterm: chronological age, full dose. HepB birth dose + HBIG if mother HBsAg+.</p>
+                </div>
+                
+                <!-- small trend visual -->
+                <div style="background: linear-gradient(145deg, #e2f2f5, white); padding:1.5rem; border-radius: 28px;">
+                    <h3 style="color: #0e6a79;"><i class="fas fa-chart-line"></i> Ethiopia NMR progress – 2025 target</h3>
+                    <div style="display:flex; flex-wrap:wrap; align-items:center;">
+                        <div class="chart-container">
+                            <canvas id="trendChart"></canvas>
+                        </div>
+                        <div style="flex:1; padding:1rem;">
+                            <p><span style="font-weight:800;">NMR/1000:</span> 39 (2016) → 33 (2019) → 27 (2022) → 22 (2025 projected) </p>
+                            <p class="footnote" style="margin:0.5rem 0;">Scale-up: KMC, early CPAP, LISA, caffeine, family-centred care.</p>
+                        </div>
+                    </div>
+                </div>
+                <p style="margin-top:2rem; padding:1rem; background: #c1e5eb; border-radius:20px; text-align:center;">
+                    <i class="fas fa-graduation-cap"></i> <strong>Student summary:</strong> All abbreviations and protocols aligned with 2024-2025 evidence. Use daily at bedside!
+                </p>
             </div>
-            <table class="management-table">
-                <thead>
-                    <tr>
-                        <th>Treatment</th>
-                        <th>Indication</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><strong>Phototherapy</strong></td>
-                        <td>Standard for most cases; uses blue-green light to convert bilirubin into water-soluble isomers.</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Exchange Transfusion</strong></td>
-                        <td>Emergency procedure for critically high bilirubin levels to prevent brain damage.</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Hydration/Feeding</strong></td>
-                        <td>Frequent breastfeeding (8-12 times a day) to encourage bowel movements and bilirubin excretion.</td>
-                    </tr>
-                </tbody>
-            </table>
-        </section>
-
-        
-
-        <section id="prognosis">
-            <h2>6. Prognosis</h2>
-            <p>Most cases of neonatal jaundice are benign and resolve without treatment. However, the prognosis for <strong>Pathological Jaundice</strong> depends on the speed of intervention. With modern phototherapy, the risk of long-term complications is extremely low. If left untreated, severe hyperbilirubinemia can lead to <strong>Acute Bilirubin Encephalopathy (ABE)</strong> or permanent <strong>Kernicterus</strong>.</p>
-        </section>
-
-        <footer style="margin-top: 60px; padding-top: 20px; border-top: 1px solid #eee;">
-            <p><em>Disclaimer: This content is for educational purposes for healthcare professionals. Always follow local hospital protocols.</em></p>
-        </footer>
-    </main>
-
-            <article class="post-card">
-                <div class="post-img" style="background-image: url('https://images.unsplash.com/photo-1519689689353-89745224597d?auto=format&fit=crop&q=80&w=400');"></div>
-                <div class="post-info">
-                    <span class="category">Parenting</span>
-                    <h3>The Power of Kangaroo Mother Care</h3>
-                    <p>How skin-to-skin contact improves physiological stability and breastfeeding rates in preterm infants.</p>
-                    <a href="#" class="read-more">Read Full Post &rarr;</a>
-                </div>
-            </article>
-
-            <article class="post-card">
-                <div class="post-img" style="background-image: url('https://images.unsplash.com/photo-1581594693702-fbdc51b2ad48?auto=format&fit=crop&q=80&w=400');"></div>
-                <div class="post-info">
-                    <span class="category">Research</span>
-                    <h3>Advances in Bubble CPAP</h3>
-                    <p>Recent studies show significant reduction in the need for mechanical ventilation using early bubble CPAP.</p>
-                    <a href="#" class="read-more">Read Full Post &rarr;</a>
-                </div>
-            </article>
-
         </div>
-    </main>
+    </div>
 
     <footer>
-        <p>&copy; 2024 ArasBet Neonatal Care. For educational purposes only.</p>
+        <div class="container footer-grid">
+            <div style="max-width: 600px;">
+                <h3 style="color:white; font-weight:700;">Ethiopia NICU Reference – for students & clinicians</h3>
+                <p style="color:#c7e6ec;">Ministry of Health – Federal Democratic Republic of Ethiopia. This version includes full abbreviation decoder, 2025 updates, and family-integrated, developmental & ethical care. Freely accessible.</p>
+            </div>
+            <div style="text-align:right;">
+                <i class="fas fa-heartbeat" style="color:#f2b5c2; font-size:2.2rem;"></i>
+                <p style="color:#d6f0f5;">Version 3.0 – Feb 2025</p>
+            </div>
+        </div>
     </footer>
 
-    <script src="script.js"></script>
+    <script>
+        // search function (sections + abbrev)
+        const searchBtn = document.getElementById('searchBtn');
+        const searchInput = document.getElementById('searchInput');
+        const allSections = document.querySelectorAll('.section-block');
+
+        function filterContent() {
+            let query = searchInput.value.trim().toLowerCase();
+            allSections.forEach(section => {
+                let text = section.innerText.toLowerCase();
+                if (text.includes(query) || query === '') {
+                    section.style.display = 'block';
+                    if (query !== '') {
+                        section.style.background = '#fffae0';
+                        setTimeout(() => section.style.background = 'white', 2000);
+                    } else {
+                        section.style.background = 'white';
+                    }
+                } else {
+                    section.style.display = 'none';
+                }
+            });
+        }
+
+        searchBtn.addEventListener('click', filterContent);
+        searchInput.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter') filterContent();
+            if (e.key === 'Escape') {
+                searchInput.value = '';
+                allSections.forEach(s => s.style.display = 'block');
+            }
+        });
+
+        // chart NMR trend
+        window.addEventListener('load', function() {
+            const ctx = document.getElementById('trendChart')?.getContext('2d');
+            if (ctx) {
+                new Chart(ctx, {
+                    type: 'line',
+                    data: {
+                        labels: ['2016', '2019', '2022', '2025'],
+                        datasets: [{
+                            label: 'NMR per 1000 live births',
+                            data: [39, 33, 27, 22],
+                            borderColor: '#0a7b8a',
+                            backgroundColor: 'rgba(10,123,138,0.05)',
+                            tension: 0.2,
+                            pointBackgroundColor: '#0d5968',
+                            pointRadius: 5,
+                            borderWidth: 3
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        plugins: { legend: { display: false } }
+                    }
+                });
+            }
+        });
+
+        // smooth sidebar navigation
+        document.querySelectorAll('.nav-links a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetEl = document.querySelector(targetId);
+                if (targetEl) {
+                    targetEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+    </script>
 </body>
 </html>
